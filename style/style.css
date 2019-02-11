@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i');
+
+
+body { 
+  font-family: 'Karla', sans-serif; 
+  color: #404e6b;
+  
+}
+
+
+.remark-slide-content {
+    background-image: url("../images/blob.svg");
+    background-size: cover;
+}
+
+.inverse {
+     background-color: #6cabdd;
+     text-shadow: none;
+}
+
+
+.remark-slide-content:after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    height: 70px;
+    width: 70px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../images/rru-logo-blue.png");
+}
+
+
+/* Footer */
+
+div.dk-footer {
+    background-color: #ffffff;
+    border-top: 1px solid #5f749e;
+    position: absolute;
+    bottom: 0px;
+    left: 70px;
+    height: 45px;
+    width: 100%;
+}
+
+div.dk-footer span {
+    position: absolute;
+    color: #5f749e;
+    left: 20px;
+    bottom: 10px;
+}
+
+div.dk-footer a {
+    color: #5f749e;
+}
