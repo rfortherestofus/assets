@@ -12,41 +12,7 @@ download.file("https://github.com/OpenSDP/faketucky/raw/master/faketucky.rda",
 
 load(here("data", "faketucky.rda"))
 
-# Clean Names
 
-faketucky_clean_names <- faketucky_20160923 %>% 
-  replace(is.na(.), NA) %>% 
-  select(chrt_ninth,
-         sid,
-         first_hs_name,
-         first_dist_name,
-         first_hs_urbanicity,
-         male,
-         race_ethnicity,
-         frpl_ever_in_hs,
-         pct_absent_in_hs,
-         avg_gpa_hs,
-         dropout,
-         hs_diploma,
-         enroll_yr1_any) %>% 
-  filter(chrt_ninth == 2009) %>% 
-  select(-chrt_ninth) %>% 
-  set_names(c("Student ID",
-              "First High School Attended",
-              "School District",
-              "High School Urbanicity",
-              "Male",
-              "Race Ethnicity",
-              "Free and Reduced Lunch",
-              "Percent Absent",
-              "GPA",
-              "Dropout",
-              "Received High School Diploma",
-              "Enrolled in College")) %>% 
-  clean_names()
-
-write_csv(faketucky_clean_names, here("data", "faketucky-clean-names.csv"),
-          na = "999")
 
 # Messy Names
 
@@ -56,13 +22,13 @@ faketucky_messy_names <- faketucky_20160923 %>%
          sid,
          first_hs_name,
          first_dist_name,
-         first_hs_urbanicity,
          male,
          race_ethnicity,
          frpl_ever_in_hs,
          pct_absent_in_hs,
          avg_gpa_hs,
-         dropout,
+         scale_score_11_read,
+         scale_score_11_math,
          hs_diploma,
          enroll_yr1_any) %>% 
   filter(chrt_ninth == 2009) %>% 
@@ -70,17 +36,25 @@ faketucky_messy_names <- faketucky_20160923 %>%
   set_names(c("Student ID",
               "First High School Attended",
               "School District",
-              "High School Urbanicity",
               "Male",
               "Race Ethnicity",
               "Free and Reduced Lunch",
               "Percent Absent",
               "GPA",
-              "Dropout",
+              "ACT Reading Score",
+              "ACT Math Score",
               "Received High School Diploma",
               "Enrolled in College"))
 
 write_csv(faketucky_messy_names, here("data", "faketucky-messy-names.csv"),
+          na = "999")
+
+# Clean Names
+
+faketucky_clean_names <- faketucky_messy_names %>% 
+  clean_names()
+
+write_csv(faketucky_clean_names, here("data", "faketucky-clean-names.csv"),
           na = "999")
 
 
