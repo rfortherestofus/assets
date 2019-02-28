@@ -94,12 +94,23 @@ write_csv(faketucky_clean_names, here("data", "faketucky-clean-names.csv"),
 
 # https://cran.r-project.org/web/packages/NHANES/NHANES.pdf
 
-# library(NHANES)
-# data(NHANES) 
-# 
-# str(NHANES)
-# 
-# library(skimr)
-# NHANES %>% 
-#   skim()
+library(NHANES)
+library(xlsx)
+
+data(NHANES)
+
+nhanes_selected_vars <- NHANES %>% 
+  select(ID:Height, 
+         BMI, 
+         HealthGen, 
+         DaysPhysHlthBad, 
+         DaysMentHlthBad,
+         SleepHrsNight,
+         PhysActive,
+         PhysActiveDays,
+         TVHrsDay,
+         SmokeNow) %>% 
+  select(-c(HHIncomeMid, AgeMonths, Poverty, HomeRooms, Length, HeadCirc, Race3))
+
+write_csv(nhanes_selected_vars, here("data", "nhanes.csv"))
 
