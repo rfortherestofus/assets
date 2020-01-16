@@ -168,6 +168,24 @@ div.dk-footer a {
   padding: 1px 50px;
 }
 
+.sticky-good {
+  background-color: #6CABDD;
+  padding: 150px 25px;
+  margin: 50px;
+  text-align: center;
+  color: white;
+  font-size: 250%;
+}
+
+.sticky-stuck {
+  background-color: #FFC659;
+  padding: 150px 25px;
+  margin: 50px;
+  text-align: center;
+  color: white;
+  font-size: 250%;
+}
+
 
 /* Non-slides */
 
